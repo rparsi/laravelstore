@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserGroupsTable extends Migration
+class CreateProductTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,17 @@ class CreateUserGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_groups', function (Blueprint $table) {
+        Schema::create('product_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 255);
+            $table->string('name');
             $table->string('slug', 100);
             $table->text('description');
-            $table->boolean('is_admin');
             $table->timestamps();
         });
 
-        $sql = 'ALTER TABLE `user_groups` ' .
-            'ADD UNIQUE KEY `user_groups_name_unique` (`name`(100)),' .
-            'ADD UNIQUE KEY `user_groups_slug_unique` (`slug`(100))'
+        $sql = 'ALTER TABLE `product_types` ' .
+            'ADD UNIQUE KEY `product_types_name_unique` (`name`(100)),' .
+            'ADD UNIQUE KEY `product_types_slug_unique` (`slug`(100))'
         ;
         /** @var \Illuminate\Database\DatabaseManager $manager */
         $manager = DB::getFacadeRoot();
@@ -39,6 +38,6 @@ class CreateUserGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_groups');
+        Schema::dropIfExists('product_types');
     }
 }
