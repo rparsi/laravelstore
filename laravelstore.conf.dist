@@ -19,7 +19,7 @@
 		</IfModule>
 	</Directory>
 
-	SetEnv APPLICATION_ENV dev
+	SetEnv APP_ENV dev
 	AddDefaultCharset UTF-8
 
 	#<Directory /var/www/project/web/bundles>
