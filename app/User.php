@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\UserGroup');
     }
+
+    public function purchaseOrders()
+    {
+        return $this->hasMany('App\PurchaseOrder');
+    }
 }
