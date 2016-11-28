@@ -15,4 +15,9 @@ class ProductBundle extends Model
     {
         return $this->hasMany('App\PurchaseOrderItem');
     }
+
+    public function coupons()
+    {
+        return $this->belongsToMany('App\Coupon', 'coupons_product_bundles');
+    }
 }

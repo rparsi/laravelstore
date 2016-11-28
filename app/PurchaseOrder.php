@@ -25,4 +25,9 @@ class PurchaseOrder extends Model
     {
         return $this->hasMany('App\PurchaseOrderItem');
     }
+
+    public function coupons()
+    {
+        return $this->belongsToMany('App\Coupon', 'purchase_orders_coupons');
+    }
 }

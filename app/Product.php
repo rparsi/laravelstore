@@ -30,4 +30,9 @@ class Product extends Model
     {
         return $this->belongsToMany('App\ProductBundle', 'product_bundles_products');
     }
+
+    public function coupons()
+    {
+        return $this->belongsToMany('App\Coupon', 'coupons_products');
+    }
 }
